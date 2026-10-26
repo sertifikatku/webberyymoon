@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berrymoon / Second Life Archive</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+          --bg-color: #F3ECE7;       /* Warna krem pastel sesuai desain */
+          --nav-bg: #E3D5CA;          /* Warna header cokelat pastel hangat */
+          --primary-red: #C85252;     /* Warna merah Berrymoon */
+          --text-dark: #1A1A1A;      /* Warna hitam teks */
+          --banner-black: #1E1C1B;   /* Warna hitam banner pemisah */
+        }
+
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          background-color: var(--bg-color);
+          color: var(--text-dark);
+          line-height: 1.5;
+        }
+
+        h1, h2, h3, .serif-font {
+          font-family: 'Playfair Display', serif;
+        }
+
+        /* 1. TOP HEADER BAR */
+        .top-bar {
+          background-color: var(--primary-red);
+          color: #FFFFFF;
+          text-align: center;
+          font-family: 'Playfair Display', serif;
+          font-size: 20px;
+          padding: 12px 16px;
+          letter-spacing: 2px;
+        }
+
+        /* 2. NAVBAR (HEADER) */
+        header {
+          background-color: var(--nav-bg);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 64px;
+          position: relative;
+        }
+
+        .logo-area {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          z-index: 2; /* Agar logo tetap di atas jika diperlukan */
+        }
+
+        .brand-logo {
+          height: 60px;
+          width: auto;
+          object-fit: contain;
+        }
+
+        /* PERUBAHAN UTAMA: Menu dan tombol dibikin ke tengah */
+        nav {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 40px;
+          align-items: center;
+        }
+
+        nav a.nav-link {
+          text-decoration: none;
+          color: var(--text-dark);
+          font-size: 16px;
+          font-weight: 800;
+          letter-spacing: 1px;
+        }
+
+        nav a.nav-link:hover {
+          color: var(--primary-red);
+        }
+
+        .order-btn {
+          background-color: var(--text-dark);
+          color: white;
+          padding: 12px 28px;
+          text-decoration: none;
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          transition: background 0.2s;
+          z-index: 2;
+        }
+
+        .order-btn:hover {
+          background-color: var(--primary-red);
+        }
+
+        /* 3. HERO SECTION */
+        .hero {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 48px;
+          padding: 80px 64px 100px 64px;
+          max-width: 1350px;
+          margin: 0 auto;
+          align-items: center;
+        }
+
+        .hero-content h3 {
+          color: var(--primary-red);
+          font-size: 16px;
+          letter-spacing: 2px;
+          margin-bottom: 20px;
+          font-weight: 700;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .hero-content h1 {
+          font-size: 68px;
+          line-height: 1.05;
+          margin-bottom: 24px;
+          font-weight: 900;
+          color: var(--text-dark);
+          letter-spacing: -1px;
+        }
+
+        .hero-content h1 span {
+          color: var(--primary-red);
+          font-weight: 400;
+        }
+
+        .hero-content p {
+          font-size: 16px;
+          color: #333333;
+          margin-bottom: 36px;
+          max-width: 460px;
+          line-height: 1.6;
+        }
+
+        .btn-red {
+          background-color: var(--primary-red);
+          color: white;
+          padding: 14px 28px;
+          text-decoration: none;
+          font-weight: 700;
+          font-size: 15px;
+          letter-spacing: 1px;
+          display: inline-block;
+          border: none;
+          transition: opacity 0.2s;
+        }
+
+        .btn-red:hover {
+          opacity: 0.9;
+        }
+
+        .hero-image-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .hero-image-wrapper img {
+          max-width: 100%;
+          height: auto;
+          max-height: 380px;
+          object-fit: contain;
+        }
+
+        /* 4. BLACK BANNER */
+        .divider-banner {
+          background-color: var(--banner-black);
+          color: white;
+          text-align: center;
+          padding: 22px 16px;
+          font-family: 'Playfair Display', serif;
+          font-size: 20px;
+          letter-spacing: 3px;
+        }
+
+        /* 5. CATALOG SECTION (THE DROP) */
+        .section-drop {
+          max-width: 1350px;
+          margin: 0 auto;
+          padding: 80px 64px 100px 64px;
+        }
+
+        .drop-header {
+          margin-bottom: 48px;
+        }
+
+        .drop-header .sub {
+          color: var(--primary-red);
+          font-size: 16px;
+          letter-spacing: 2px;
+          font-weight: 700;
+          margin-bottom: 8px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .drop-header h2 {
+          font-size: 48px;
+          font-weight: 900;
+          letter-spacing: -1px;
+        }
+
+        .product-grid {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 56px;
+          align-items: flex-start;
+        }
+
+        .product-image img {
+          width: 100%;
+          max-width: 440px;
+          height: auto;
+          display: block;
+          object-fit: cover;
+          border: 1px solid #1A1A1A;
+        }
+
+        .product-info {
+          padding-top: 20px;
+        }
+
+        .product-info .catalog-tag {
+          display: inline-block;
+          border: 1px solid var(--text-dark);
+          padding: 6px 16px;
+          font-size: 13px;
+          font-weight: 700;
+          margin-bottom: 24px;
+          letter-spacing: 1.5px;
+          background-color: transparent;
+        }
+
+        .product-info h3 {
+          font-size: 52px;
+          line-height: 1.1;
+          margin-bottom: 16px;
+          font-weight: 900;
+        }
+
+        .product-info .meta {
+          font-size: 15px;
+          color: #222222;
+          font-weight: 600;
+          margin-bottom: 6px;
+        }
+
+        .product-info .desc {
+          font-size: 15px;
+          color: #333333;
+          margin-bottom: 36px;
+        }
+
+        /* 6. FOOTER SECTION */
+        footer {
+          background-color: var(--primary-red);
+          color: white;
+          text-align: center;
+          padding: 80px 24px 90px 24px;
+        }
+
+        footer h2 {
+          font-size: 64px;
+          font-weight: 800;
+          margin-bottom: 16px;
+        }
+
+        footer p.footer-desc {
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 8px;
+          font-weight: 500;
+        }
+
+        footer p.footer-sub {
+          font-size: 16px;
+          margin-bottom: 40px;
+          font-weight: 600;
+        }
+
+        .social-links {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .social-btn {
+          border: 1px solid rgba(255,255,255,0.8);
+          color: white;
+          padding: 14px 28px;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+          background: white;
+          color: var(--primary-red);
+        }
+
+        /* RESPONSIVE DESIGN FOR MOBILE */
+        @media (max-width: 900px) {
+          header {
+            padding: 16px 24px;
+            flex-direction: column;
+            gap: 16px;
+          }
+          nav {
+            position: static;
+            transform: none;
+            gap: 20px;
+          }
+          .hero, .product-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 40px 24px;
+          }
+          .hero-content h1 {
+            font-size: 48px;
+          }
+          .product-info h3 {
+            font-size: 38px;
+          }
+          footer h2 {
+            font-size: 44px;
+          }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TOP HEADER BAR -->
+    <div class="top-bar">
+        BERRYMOON/SECOND LIFE ARCHIVE
+    </div>u
+
+    <!u-- 2. NAVBAR -->
+    <header>
+        <a href="#" class="logo-area">
+            <img src="berrymoon3.PNG" alt="Berrymoon Logo" class="brand-logo">
+        </a>
+        
+        <!-- Menu yang diposisikan di tengah -->
+        <nav>
+            <a href="#drop" class="nav-link">THE DROP</a>
+            <a href="#about" class="nav-link">ABOUT</a>
+            <a href="#socials" class="nav-link">SOCIAL</a>
+        </nav>
+
+        <a href="https://wa.me/6281234567890?text=Halo%20Berrymoon,%20saya%20ingin%20bertanya%20mengenai%20koleksi%20Anda." target="_blank" class="order-btn">ORDER</a>
+    </header>
+
+    <!-- 3. HERO SECTION -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h3>Y 2 K / GRUNGE / ALT FASHION</h3>
+            <h1>MADE TO<br>BE <span>LOVED</span><br>AGAIN.</h1>
+            <p>Not your average thrift store. Curated Y2K,<br>grunge & alternative pieces. For fits that don't blend in.</p>
+            <a href="#drop" class="btn-red">EXPLORE THE DROP</a>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="berrymoon3.PNG" alt="Berrymoon Logo Large">
+        </div>
+    </section>
+
+    <!-- 4. BLACK BANNER -->
+    <div class="divider-banner">
+        ✦ SECONDHAND. FIRST CHOICE. ✦
+    </div>
+
+    <!-- 5. CATALOG SECTION (THE DROP) -->
+    <section id="drop" class="section-drop">
+        <div class="drop-header">
+            <div class="sub">ARCHIVE / 001</div>
+            <h2>THE DROP.</h2>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-image">
+                <img src="berrymoon.JPG.jpeg" alt="Sport Milky Raglan Top">
+            </div>
+            <div class="product-info">
+                <div class="catalog-tag">CATALOG 001</div>
+                <h3>Striped Hood Blazer</h3>
+                <p class="meta">Black / White Y2K Goth</p>
+                <p class="desc">Details & availability on request</p>
+                <a href="https://wa.me/6281234567890?text=Halo%20Berrymoon,%20saya%20tertarik%20dengan%20produk%20Catalog%20001%20-%20Sport%20Milky%20Raglan%20Top.%20Apakah%20masih%20tersedia?" target="_blank" class="btn-red">INQUIRE / ORDER</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER SECTION -->
+    <footer id="socials">
+        <h2>berrymoon</h2>
+        <p class="footer-desc">Thrift & pre-loved picks with a Y2K grunge edge.</p>
+        <p class="footer-sub">Made to Be Loved Again.</p>
+        <div class="social-links">
+            <a href="#" class="social-btn">IG @berrm0.0n</a>
+            <a href="#" class="social-btn">TIKTOK @berrym0.0n</a>
+            <a href="#" class="social-btn">YOUTUBE berrymoon</a>
+        </div>
+    </footer>
+
+</body>
+</html>
